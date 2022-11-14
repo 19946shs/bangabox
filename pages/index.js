@@ -30,11 +30,8 @@ export default function Home() {
   firebaseAuth.onAuthStateChanged((authState) => {
     if(authState) {
       setLoggedIn(true)
-      console.log('%cDebug JCOLE :: ', 'background: #222; color: #bada55', authState);
     } else {
-      setLoggedIn(false)
-      console.log('%cDebug SNOOP :: ', 'background: #222; color: #bada55', authState);
-      setAuthUser(null);
+      
     }
   })
 
@@ -51,12 +48,16 @@ export default function Home() {
         const token = credential.accessToken;
         const user = result.user;
         setAuthUser(user);
+        setLoggedIn(true)
+        console.log('%cDebug JCOLE :: ', 'background: #222; color: #bada55', authState);
         // ...
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        const credential = GoogleAuthProvider.credentialFromError(error);setLoggedIn(false)
+        console.log('%cDebug SNOOP :: ', 'background: #222; color: #bada55', authState);
+        setAuthUser(null);
       });
   }
 
