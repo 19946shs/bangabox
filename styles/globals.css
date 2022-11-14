@@ -21,6 +21,16 @@ a {
   }
   body {
     color: white;
-    background: black;
+    background: var(--background);
   }
+}
+
+:root {
+  --space-cadet: #27293cff;
+  --space-cadet-2: #2b2d42ff;
+  --manatee: #8d99aeff;
+  --background: #edf2f4ff;
+  --imperial-red: #ef233cff;
+  --rose-madder: #e41433ff;
+  --amaranth-red: #d90429ff;
 }
